@@ -1,0 +1,8 @@
+.panel {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.panel[aria-hidden='true'] {
+  pointer-events: none;
+}

@@ -1,0 +1,141 @@
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 24px 60px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  touch-action: none;
+  user-select: none;
+}
+
+.photoPro,
+.photoFun {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* The pro shot is landscape with the subject left of center. */
+.photoPro {
+  object-position: 28% 50%;
+}
+
+.photoFun {
+  object-position: 50% 35%;
+}
+
+.sideButton {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0;
+}
+
+.sideLeft {
+  left: 0;
+}
+
+.sideRight {
+  right: 0;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.75rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  border: none;
+  background: transparent;
+  cursor: ew-resize;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.handle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  opacity: 0.9;
+}
+
+.handle:focus-visible {
+  outline: none;
+}
+
+.handle:focus-visible .grip {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.grip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-size: 1.1rem;
+  line-height: 1;
+  box-shadow: 0 4px 14px var(--color-shadow);
+}
+
+.labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.label {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.label[aria-pressed='true'] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.labelHint {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
