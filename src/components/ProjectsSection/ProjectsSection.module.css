@@ -1,0 +1,15 @@
+.section {
+  margin-top: clamp(3rem, 8vw, 6rem);
+}
+
+.heading {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin: 0 0 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}

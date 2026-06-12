@@ -11,6 +11,7 @@ import { PersonaTheme } from './components/PersonaTheme/PersonaTheme';
 import { PersonaPortrait } from './components/PersonaPortrait/PersonaPortrait';
 import { EngineerPanel } from './components/EngineerPanel/EngineerPanel';
 import { HumanPanel } from './components/HumanPanel/HumanPanel';
+import { ProjectsSection } from './components/ProjectsSection/ProjectsSection';
 import { site } from './content/site';
 import type { Persona } from './content/types';
 import styles from './App.module.css';
@@ -67,6 +68,8 @@ function App() {
               <HumanPanel progress={progress} hidden={active !== 'human'} />
             </div>
           </section>
+
+          <ProjectsSection active={active} />
         </main>
 
         <footer className={styles.footer}>
