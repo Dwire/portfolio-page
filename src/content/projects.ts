@@ -29,7 +29,9 @@ export const projects: Project[] = [
     description:
       'A shared backend pipeline powering notifications across products — built to be reliable at scale and respectful of the person on the other end.',
     persona: 'engineer',
-    images: [{ alt: 'Notification pipeline architecture', gradient: ['#1d4ed8', '#38bdf8'], emoji: '📬' }],
+    images: [
+      { alt: 'Notification pipeline architecture', gradient: ['#1d4ed8', '#38bdf8'], emoji: '📬' },
+    ],
     tags: ['Backend', 'Pipelines', 'Reliability'],
   },
   {

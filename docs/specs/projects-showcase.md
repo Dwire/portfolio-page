@@ -1,6 +1,6 @@
 # Projects Showcase
 
-**Status:** In progress
+**Status:** Shipped
 
 ## Purpose
 

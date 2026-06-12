@@ -18,7 +18,11 @@ export function ProjectCard({ project, flip }: ProjectCardProps) {
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], reducedMotion ? ['0%', '0%'] : ['-7%', '7%']);
+  const parallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reducedMotion ? ['0%', '0%'] : ['-7%', '7%'],
+  );
 
   const image = project.images[Math.min(imageIndex, project.images.length - 1)];
 

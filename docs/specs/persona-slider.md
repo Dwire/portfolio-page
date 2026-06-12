@@ -1,6 +1,6 @@
 # Persona Slider
 
-**Status:** In progress
+**Status:** Shipped
 
 ## Purpose
 
@@ -8,7 +8,7 @@ The site's core mechanic. GJD has two sides — full-stack engineer and outdoors
 
 ## User experience
 
-- The hero shows a portrait with a vertical divider handle. Left of the divider is the professional headshot; right of it, the fun headshot is revealed as the divider moves (before/after photo slider).
+- The hero shows a portrait with a vertical divider handle. At rest the professional headshot fills the frame; dragging the handle right sweeps the fun headshot in from the left edge (before/after photo slider). The handle stays clamped just inside the frame so it remains visible at the extremes.
 - Dragging the handle right transforms the whole page: theme colors interpolate from cool slate/navy to warm coral/pink, the engineering profile fades/slides out as the personal bio enters, and the projects section below swaps to match.
 - Releasing the handle snaps it to the nearer persona with spring physics — the page always settles fully on one persona.
 - Clicking/tapping either persona's side of the portrait, or its label, animates the slider to that persona.

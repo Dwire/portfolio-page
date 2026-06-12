@@ -20,14 +20,14 @@ npm run dev        # dev server at http://localhost:5173
 
 ## Scripts
 
-| Script            | What it does                              |
-| ----------------- | ----------------------------------------- |
-| `npm run dev`     | Start the Vite dev server                 |
-| `npm test`        | Run the Vitest suite                      |
-| `npm run lint`    | ESLint over the project                   |
-| `npm run format`  | Prettier write over the project           |
-| `npm run build`   | Type-check + production build to `dist/`  |
-| `npm run preview` | Serve the production build locally        |
+| Script            | What it does                             |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start the Vite dev server                |
+| `npm test`        | Run the Vitest suite                     |
+| `npm run lint`    | ESLint over the project                  |
+| `npm run format`  | Prettier write over the project          |
+| `npm run build`   | Type-check + production build to `dist/` |
+| `npm run preview` | Serve the production build locally       |
 
 ## Architecture
 

@@ -16,7 +16,7 @@ A single `progress` motion value (0 = Engineer, 1 = Human) drives the headshot r
 ## Documentation rules
 
 - **README**: update `README.md` in the same change as anything it describes — setup steps, npm scripts, architecture, content editing, deployment. A PR that changes behavior but not the README is incomplete.
-- **Feature specs**: every non-trivial feature gets a spec in `docs/specs/<feature-name>.md`, created *before* implementation and updated whenever the feature's behavior changes. Copy `docs/specs/_TEMPLATE.md` to start. A spec that no longer matches the code is a bug.
+- **Feature specs**: every non-trivial feature gets a spec in `docs/specs/<feature-name>.md`, created _before_ implementation and updated whenever the feature's behavior changes. Copy `docs/specs/_TEMPLATE.md` to start. A spec that no longer matches the code is a bug.
 - Specs describe intent and behavior, not implementation history. Keep them current, not chronological.
 
 ## TypeScript / React guidelines

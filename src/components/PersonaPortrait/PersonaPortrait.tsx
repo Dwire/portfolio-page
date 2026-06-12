@@ -24,7 +24,8 @@ export function PersonaPortrait({ progress, active, onSelect }: PersonaPortraitP
   const draggingRef = useRef(false);
 
   const funClip = useTransform(progress, (p) => `inset(0 ${(1 - p) * 100}% 0 0)`);
-  const handleLeft = useTransform(progress, (p) => `${p * 100}%`);
+  // Keep the grip fully visible inside the frame at the extremes.
+  const handleLeft = useTransform(progress, (p) => `clamp(1.5rem, ${p * 100}%, 100% - 1.5rem)`);
 
   const setFromPointer = (clientX: number) => {
     const rect = containerRef.current?.getBoundingClientRect();

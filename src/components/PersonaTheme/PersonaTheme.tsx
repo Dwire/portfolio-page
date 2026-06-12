@@ -9,10 +9,7 @@ interface PersonaThemeProps {
   children: ReactNode;
 }
 
-const range = (key: keyof Palette): [string, string] => [
-  engineerPalette[key],
-  humanPalette[key],
-];
+const range = (key: keyof Palette): [string, string] => [engineerPalette[key], humanPalette[key]];
 
 /**
  * Maps the persona progress value onto the CSS custom properties every
