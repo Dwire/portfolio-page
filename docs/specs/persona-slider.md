@@ -19,7 +19,7 @@ The site's core mechanic. GJD has two sides — full-stack engineer and outdoors
 - `src/App.tsx` owns `progress = useMotionValue(0)` (0 = Engineer, 1 = Human) and passes it down. A spring (`useSpring`) smooths snapping.
 - `src/components/PersonaPortrait/` stacks the two headshots; the fun photo is revealed with a `clip-path: inset()` driven by `progress`. The divider handle is a Framer Motion draggable mapped back to `progress`.
 - `src/components/PersonaTheme/` wraps the page and maps `progress` to CSS custom properties (`--color-bg`, `--color-surface`, `--color-accent`, `--color-text`, ...) via `useTransform` color interpolation. All components style themselves with these variables only.
-- `src/components/EngineerPanel/` and `src/components/HumanPanel/` render the two content sections; opacity/translate are functions of `progress`. The non-dominant panel gets `aria-hidden` and `inert`-like treatment (no focusable elements).
+- `src/components/EngineerPanel/` and `src/components/HumanPanel/` render the two content sections; opacity/translate are functions of `progress`. The Human panel presents compact personal cards with an icon, title, and short body copy. The non-dominant panel gets `aria-hidden` and `inert`-like treatment (no focusable elements).
 - Content comes from `src/content/engineer.ts` and `src/content/human.ts`.
 - Headshots live in `src/assets/headshot-pro.jpg` and `src/assets/headshot-fun.jpg`; both are cropped to a shared aspect ratio with `object-fit: cover` so the reveal aligns.
 

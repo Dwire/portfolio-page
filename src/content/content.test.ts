@@ -13,12 +13,13 @@ describe('content modules', () => {
     }
   });
 
-  it('human content has an intro and facts', () => {
+  it('human content has an intro and cards', () => {
     expect(human.intro).not.toBe('');
-    expect(human.facts.length).toBeGreaterThan(0);
-    for (const fact of human.facts) {
-      expect(fact.text).not.toBe('');
-      expect(fact.emoji).not.toBe('');
+    expect(human.cards.length).toBeGreaterThan(0);
+    for (const card of human.cards) {
+      expect(card.emoji).not.toBe('');
+      expect(card.title).not.toBe('');
+      expect(card.text).not.toBe('');
     }
   });
 

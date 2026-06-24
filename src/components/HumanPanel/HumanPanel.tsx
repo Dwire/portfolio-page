@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import type { MotionValue } from 'motion/react';
 import { PersonaPanel } from '../PersonaPanel/PersonaPanel';
 import { human } from '../../content/human';
@@ -8,18 +9,20 @@ interface HumanPanelProps {
   hidden: boolean;
 }
 
-export function HumanPanel({ progress, hidden }: HumanPanelProps) {
+export function HumanPanel({ progress, hidden }: HumanPanelProps): ReactElement {
   return (
     <PersonaPanel progress={progress} persona="human" hidden={hidden}>
       <h2 className={styles.heading}>{human.heading}</h2>
       <p className={styles.intro}>{human.intro}</p>
-      <ul className={styles.facts}>
-        {human.facts.map((fact) => (
-          <li key={fact.text} className={styles.fact}>
+      <ul className={styles.cards}>
+        {human.cards.map((card) => (
+          <li key={card.title} className={styles.card}>
             <span className={styles.emoji} aria-hidden="true">
-              {fact.emoji}
+              {card.emoji}
             </span>
-            <span>{fact.text}</span>
+            <p className={styles.cardText}>
+              <strong className={styles.cardTitle}>{card.title}</strong> <span>{card.text}</span>
+            </p>
           </li>
         ))}
       </ul>

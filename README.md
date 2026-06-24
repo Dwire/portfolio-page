@@ -45,7 +45,7 @@ See `docs/specs/` for per-feature specs, and **`AGENTS.md` for project guideline
 All copy and project data live in typed modules under `src/content/` — no component changes needed:
 
 - `src/content/engineer.ts` — professional blurb and focus areas
-- `src/content/human.ts` — personal bio items
+- `src/content/human.ts` — grouped personal bio cards
 - `src/content/projects.ts` — projects (each tagged `engineer` or `human`); images go in `src/assets/projects/`
 
 ### Headshots
