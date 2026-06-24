@@ -10,10 +10,18 @@ const galleryProject: Project = {
   description: 'A project with multiple images.',
   persona: 'human',
   images: [
-    { alt: 'First view', gradient: ['#111111', '#222222'], emoji: '🖼️' },
-    { alt: 'Second view', gradient: ['#333333', '#444444'], emoji: '🎞️' },
+    { type: 'placeholder', alt: 'First view', gradient: ['#111111', '#222222'], emoji: '🖼️' },
+    { type: 'placeholder', alt: 'Second view', gradient: ['#333333', '#444444'], emoji: '🎞️' },
   ],
   tags: ['Test'],
+};
+
+const videoProject: Project = {
+  id: 'video-test',
+  title: 'Video project',
+  description: 'A project with a single looping video.',
+  persona: 'human',
+  images: [{ type: 'video', src: '/test-video.mp4', alt: 'Looping process video' }],
 };
 
 describe('ProjectCard', () => {
@@ -22,6 +30,19 @@ describe('ProjectCard', () => {
     expect(screen.getByRole('heading', { name: 'Gallery project' })).toBeInTheDocument();
     expect(screen.getByText('A project with multiple images.')).toBeInTheDocument();
     expect(screen.getByText('Test')).toBeInTheDocument();
+  });
+
+  it('renders a single looping video without gallery dots', () => {
+    render(<ProjectCard project={videoProject} flip={false} />);
+
+    const video = screen.getByLabelText('Looping process video');
+    expect(video.tagName).toBe('VIDEO');
+    expect(video).toHaveAttribute('src', '/test-video.mp4');
+    expect(video).toHaveAttribute('autoplay');
+    expect(video).toHaveAttribute('loop');
+    expect(video).toHaveAttribute('playsinline');
+    expect((video as HTMLVideoElement).muted).toBe(true);
+    expect(screen.queryByRole('button', { name: /Show image/i })).not.toBeInTheDocument();
   });
 
   it('switches gallery images via the dot buttons', async () => {

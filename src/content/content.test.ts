@@ -22,17 +22,29 @@ describe('content modules', () => {
     }
   });
 
-  it('projects cover both personas with unique ids and at least one image each', () => {
+  it('projects cover both personas with unique ids and at least one media item each', () => {
     const ids = projects.map((project) => project.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(projects.some((project) => project.persona === 'engineer')).toBe(true);
     expect(projects.some((project) => project.persona === 'human')).toBe(true);
     for (const project of projects) {
       expect(project.images.length).toBeGreaterThan(0);
-      for (const image of project.images) {
-        expect(image.alt).not.toBe('');
-        expect(image.src ?? image.gradient).toBeDefined();
+      for (const media of project.images) {
+        expect(media.alt).not.toBe('');
+        if (media.type === 'placeholder') {
+          expect(media.gradient).toBeDefined();
+        } else {
+          expect(media.src).not.toBe('');
+        }
       }
     }
+  });
+
+  it('shelves project has a multi-image gallery', () => {
+    const shelves = projects.find((project) => project.id === 'shelves');
+
+    expect(shelves).toBeDefined();
+    expect(shelves?.images).toHaveLength(5);
+    expect(shelves?.images.every((media) => media.type === 'image')).toBe(true);
   });
 });

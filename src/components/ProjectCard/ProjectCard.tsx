@@ -24,7 +24,7 @@ export function ProjectCard({ project, flip }: ProjectCardProps) {
     reducedMotion ? ['0%', '0%'] : ['-7%', '7%'],
   );
 
-  const image = project.images[Math.min(imageIndex, project.images.length - 1)];
+  const media = project.images[Math.min(imageIndex, project.images.length - 1)];
 
   return (
     <motion.article
@@ -37,18 +37,28 @@ export function ProjectCard({ project, flip }: ProjectCardProps) {
     >
       <div className={styles.media}>
         <motion.div className={styles.mediaInner} style={{ y: parallaxY }}>
-          {image.src ? (
-            <img className={styles.image} src={image.src} alt={image.alt} />
+          {media.type === 'video' ? (
+            <video
+              className={styles.video}
+              src={media.src}
+              aria-label={media.alt}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : media.type === 'image' ? (
+            <img className={styles.image} src={media.src} alt={media.alt} />
           ) : (
             <div
               className={styles.placeholder}
               role="img"
-              aria-label={image.alt}
+              aria-label={media.alt}
               style={{
-                background: `linear-gradient(135deg, ${image.gradient?.[0] ?? '#334155'}, ${image.gradient?.[1] ?? '#64748b'})`,
+                background: `linear-gradient(135deg, ${media.gradient?.[0] ?? '#334155'}, ${media.gradient?.[1] ?? '#64748b'})`,
               }}
             >
-              <span aria-hidden="true">{image.emoji}</span>
+              <span aria-hidden="true">{media.emoji}</span>
             </div>
           )}
         </motion.div>

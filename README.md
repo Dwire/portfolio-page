@@ -46,7 +46,9 @@ All copy and project data live in typed modules under `src/content/` — no comp
 
 - `src/content/engineer.ts` — professional blurb and focus areas
 - `src/content/human.ts` — personal bio items
-- `src/content/projects.ts` — projects (each tagged `engineer` or `human`); images go in `src/assets/projects/`
+- `src/content/projects.ts` — projects (each tagged `engineer` or `human`); project images and MP4 videos go in `src/assets/projects/`
+
+Project cards accept still images, MP4 videos, and placeholders. A project with one media item renders without gallery dots; projects with multiple media items render dot controls. Autoplaying project videos must be muted, looped, and inline.
 
 ### Headshots
 
