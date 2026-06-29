@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-29T00:00:00.000Z",
+  "title": "Design System: ME — Engineer / Human",
+  "extensions": {
+    "colorMeta": {
+      "engineer-bg": { "role": "neutral", "displayName": "Slate Night", "canonical": "#0f172a", "tonalRamp": ["#05080f", "#0a0f1c", "#0f172a", "#1c2840", "#2b3a55", "#465a7e", "#7186a8", "#a7b6cf", "#dde4ef"] },
+      "engineer-surface": { "role": "neutral", "displayName": "Slate Surface", "canonical": "#1c2840", "tonalRamp": ["#0a0f1a", "#131c2e", "#1c2840", "#283755", "#37496f", "#506488", "#7587a8", "#a3b0c8", "#d6dde9"] },
+      "engineer-accent": { "role": "primary", "displayName": "Console Cyan", "canonical": "#38bdf8", "tonalRamp": ["#063047", "#0a4d70", "#0e6a9b", "#1488c6", "#38bdf8", "#67cef9", "#93dcfb", "#bfeafc", "#e3f6fe"] },
+      "engineer-text": { "role": "neutral", "displayName": "Console Ink", "canonical": "#e6edf6", "tonalRamp": ["#2b3a55", "#465a7e", "#7186a8", "#93a5bd", "#b6c4d8", "#cfd9e8", "#e6edf6", "#f2f6fb", "#ffffff"] },
+      "engineer-text-muted": { "role": "neutral", "displayName": "Console Muted", "canonical": "#93a5bd", "tonalRamp": ["#3a475c", "#566681", "#7186a8", "#93a5bd", "#aebbce", "#c7d0de", "#dde3ec", "#eef1f6", "#ffffff"] },
+      "engineer-border": { "role": "neutral", "displayName": "Console Border", "canonical": "#2b3a55", "tonalRamp": ["#0f172a", "#1c2840", "#2b3a55", "#3c4f70", "#52688c", "#7185a6", "#9aa9c2", "#c4cdde", "#e8ecf3"] },
+      "human-bg": { "role": "neutral", "displayName": "Warm Plaster", "canonical": "#fff4f1", "tonalRamp": ["#43262c", "#724148", "#a06770", "#c79199", "#e7bbc0", "#f4d7d3", "#fbe7e2", "#fff4f1", "#fffafa"] },
+      "human-surface": { "role": "neutral", "displayName": "Workshop White", "canonical": "#ffffff", "tonalRamp": ["#43262c", "#92686f", "#c79199", "#e7bbc0", "#f4d7d3", "#fbe7e2", "#fdf1ee", "#fff8f6", "#ffffff"] },
+      "human-accent": { "role": "primary", "displayName": "Workshop Coral", "canonical": "#e85d75", "tonalRamp": ["#4d1721", "#7a2434", "#a83348", "#cf445c", "#e85d75", "#ef8395", "#f4a6b3", "#f9cad2", "#fde9ed"] },
+      "human-text": { "role": "neutral", "displayName": "Workshop Ink", "canonical": "#43262c", "tonalRamp": ["#1f1014", "#311a1f", "#43262c", "#653a43", "#8a525c", "#a8727c", "#c599a1", "#e0c2c7", "#f3e5e8"] },
+      "human-text-muted": { "role": "neutral", "displayName": "Workshop Muted", "canonical": "#92686f", "tonalRamp": ["#3c272b", "#5c3c42", "#7c525a", "#92686f", "#ab858b", "#c4a4a9", "#dbc4c8", "#eee2e4", "#fbf6f7"] },
+      "human-border": { "role": "neutral", "displayName": "Workshop Border", "canonical": "#f4d7d3", "tonalRamp": ["#724148", "#a06770", "#c79199", "#e0b3b7", "#f4d7d3", "#f9e5e2", "#fceeec", "#fef6f5", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display / Name", "purpose": "The wordmark in the header; the one tracked-open moment." },
+      "title": { "displayName": "Title", "purpose": "Project card titles and section headings." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and bio copy; cap measure at 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Tag pills and footer; small and quiet, never a tracked eyebrow." }
+    },
+    "shadows": [
+      { "name": "card-lift", "value": "0 18px 44px var(--color-shadow)", "purpose": "The single elevation token under cards and panels; shadow color is theme-bound (deep blue in the Console, soft rose in the Workshop)." }
+    ],
+    "motion": [
+      { "name": "persona-morph", "value": "useTransform(progress, [0,1], [engineer, human])", "purpose": "The core mechanic: one progress value interpolates all eight theme variables as the slider moves." },
+      { "name": "reduced-motion", "value": "snap + fade", "purpose": "prefers-reduced-motion fallback: snap between persona states with a simple fade rather than removing the mechanic." }
+    ],
+    "breakpoints": [
+      { "name": "hero-collapse", "value": "47rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Asymmetric two-column media + body card; the surface, border, and shadow all morph with the slider.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-media\"></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Surfboard, shaped by hand</h3><p class=\"ds-card-desc\">A 6'2\" performance shortboard glassed in the garage over three weekends.</p><ul class=\"ds-card-tags\"><li class=\"ds-tag\">Foam</li><li class=\"ds-tag\">Resin</li></ul><a class=\"ds-link\" href=\"#\">See the build</a></div></article>",
+      "css": ".ds-card { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(1.25rem,3vw,2.5rem); align-items: center; padding: 1.25rem; border-radius: 1.25rem; border: 1px solid var(--color-border, #f4d7d3); background: var(--color-surface, #fff); box-shadow: 0 18px 44px var(--color-shadow, rgba(151,71,89,0.18)); } .ds-card-media { border-radius: 0.9rem; aspect-ratio: 16/10; background: var(--color-border, #f4d7d3); } .ds-card-title { margin: 0 0 0.5rem; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; color: var(--color-text, #43262c); } .ds-card-desc { margin: 0 0 1rem; line-height: 1.6; color: var(--color-text-muted, #92686f); } .ds-card-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0 0 1rem; padding: 0; } .ds-link { color: var(--color-accent, #e85d75); font-weight: 600; text-decoration: none; } .ds-link:hover, .ds-link:focus-visible { text-decoration: underline; }"
+    },
+    {
+      "name": "Tag Pill",
+      "kind": "chip",
+      "refersTo": "tag-pill",
+      "description": "Outlined full-pill tag; no fill, muted text, border morphs with the room.",
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "css": ".ds-tag { display: inline-block; font-size: 0.78rem; padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid var(--color-border, #f4d7d3); color: var(--color-text-muted, #92686f); }"
+    },
+    {
+      "name": "CTA Link",
+      "kind": "custom",
+      "refersTo": "link-cta",
+      "description": "The page's only call to action: a colored text link, no filled button. Accent morphs cyan ↔ coral.",
+      "html": "<a class=\"ds-link\" href=\"#\">See the build</a>",
+      "css": ".ds-link { display: inline-block; color: var(--color-accent, #e85d75); font-weight: 600; text-decoration: none; transition: text-decoration-color 0.2s; } .ds-link:hover, .ds-link:focus-visible { text-decoration: underline; } .ds-link:focus-visible { outline: 3px solid var(--color-accent, #e85d75); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Developer Console & The Workshop",
+    "overview": "Two physical rooms bridged by a single slider. At progress 0 you stand in the Developer Console — a deep slate-navy room lit by screen-glow, cyan catching the edges, the calm precision of reading a stack trace at night. At progress 1 you step into the Workshop — a warm near-white space of coral light, foam dust, and shaped wood, where the same person builds surfboards and shelves by hand. Every position between is a real room: eight CSS custom properties interpolate continuously so the whole page recolors as one gesture. The system rejects the bootcamp dark-mode portfolio and the cream-and-eyebrow SaaS landing alike, and refuses to be twitchy — one motion centerpiece, everything else calm. Components feel tactile and precise: soft 20px radii, real depth, confident spacing.",
+    "keyCharacteristics": [
+      "One progress value (0 → 1) drives all eight theme variables simultaneously.",
+      "Two fully resolved palettes; the live surface is whatever sits between them.",
+      "Tactile-precise components: 20px card radius, full-pill tags, real interpolated shadows.",
+      "One motion centerpiece (persona morph + slider); reveal/parallax stay quiet.",
+      "Single Avenir family carrying the whole system through weight and size."
+    ],
+    "rules": [
+      { "name": "The Two-Rooms Rule", "body": "Color is never chosen — it is read off the slider. Reference var(--color-*) so every component morphs; hardcoding a persona hex is a bug.", "section": "colors" },
+      { "name": "The No-Gray Rule", "body": "Muted text is a desaturated shade of the room's own hue (slate-blue / rose-brown), never neutral gray.", "section": "colors" },
+      { "name": "The One-Family Rule", "body": "No second typeface. Contrast comes from weight (400 ↔ 600) and size, never a new font.", "section": "typography" },
+      { "name": "The Theme-Bound Shadow Rule", "body": "Shadows use var(--color-shadow), never a hardcoded black rgba; the rose shadow belongs to the Workshop.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do reference var(--color-*) tokens for every color so components morph with the slider.",
+      "Do keep muted text a desaturated shade of the room's own hue, never gray.",
+      "Do carry hierarchy with weight and size in the single Avenir family.",
+      "Do use the theme-bound shadow for elevation, never a hardcoded black.",
+      "Do let the persona morph be the one motion centerpiece; keep reveal/parallax quiet.",
+      "Do keep both rooms equal — neither Engineer nor Human is a footnote."
+    ],
+    "donts": [
+      "Don't build the generic dev portfolio: gradient hero blob, repo-card grid, skill-bar charts.",
+      "Don't drift toward the corporate SaaS landing: cream backgrounds, tracked uppercase eyebrows, big-number metric cards, stock 3D illustration.",
+      "Don't get gimmicky or over-animated: no cursor trails, no fade-in on every section, no parallax everywhere.",
+      "Don't collapse into sterile minimalism: black Helvetica on white with no point of view.",
+      "Don't hardcode a persona hex or use a black rgba shadow; both break the interpolation.",
+      "Don't introduce a second font family or all-caps tracked body copy."
+    ]
+  }
+}

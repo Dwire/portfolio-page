@@ -24,8 +24,9 @@ export function PersonaPortrait({ progress, active, onSelect }: PersonaPortraitP
   const draggingRef = useRef(false);
 
   const funClip = useTransform(progress, (p) => `inset(0 ${(1 - p) * 100}% 0 0)`);
-  // Keep the grip fully visible inside the frame at the extremes.
-  const handleLeft = useTransform(progress, (p) => `clamp(1.5rem, ${p * 100}%, 100% - 1.5rem)`);
+  // Divider travels the full width; the grip straddles the frame edge at the extremes
+  // (the photos clip inside an inner frame, so the grip itself is never cut off).
+  const handleLeft = useTransform(progress, (p) => `${p * 100}%`);
 
   const setFromPointer = (clientX: number) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -70,13 +71,15 @@ export function PersonaPortrait({ progress, active, onSelect }: PersonaPortraitP
   return (
     <div className={styles.figure}>
       <div ref={containerRef} className={styles.portrait}>
-        <img className={styles.photoPro} src={headshotPro} alt={`${site.name}, the engineer`} />
-        <motion.img
-          className={styles.photoFun}
-          src={headshotFun}
-          alt={`${site.name}, the human`}
-          style={{ clipPath: funClip }}
-        />
+        <div className={styles.frame}>
+          <img className={styles.photoPro} src={headshotPro} alt={`${site.name}, the engineer`} />
+          <motion.img
+            className={styles.photoFun}
+            src={headshotFun}
+            alt={`${site.name}, the human`}
+            style={{ clipPath: funClip }}
+          />
+        </div>
         <button
           type="button"
           className={`${styles.sideButton} ${styles.sideLeft}`}

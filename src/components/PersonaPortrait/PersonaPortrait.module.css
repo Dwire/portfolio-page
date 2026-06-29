@@ -8,11 +8,19 @@
   position: relative;
   aspect-ratio: 4 / 5;
   border-radius: 1.5rem;
-  overflow: hidden;
   box-shadow: 0 24px 60px var(--color-shadow);
   border: 1px solid var(--color-border);
   touch-action: none;
   user-select: none;
+}
+
+/* Clips the photos to the rounded frame while letting the handle grip
+   overhang the edges so the divider can reach 0% / 100%. */
+.frame {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .photoPro,
